@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:spring="http://www.springframework.org/tags">
+
+<head th:replace="emails/baseemail.html :: common_header(~{::title})">
+<title th:utext="#{email.welcome.title}"></title>
+</head>
+
+<body
+	th:replace="emails/baseemail.html :: common_body(#{email.welcome.body(${username}, #{email.welcome.subbody(${#dates.format(registerDate)})})})">
+</body>
+
+</html>

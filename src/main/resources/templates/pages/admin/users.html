@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{header :: head(#{admin.users.title})}"></head>
+<body>
+	<div th:replace="~{header :: menu()}"></div>
+	<div class="container">
+		<div th:replace="~{header :: titlesection(#{admin.users.title})}"></div>
+		
+	  	<table class="table">
+			<tr th:each="user: ${users}">
+			    <td th:text="${user.id}" />
+			    <td th:text="${user.username}" />
+			    <td th:text="${user.email}" />
+			</tr>  	
+	  	</table>
+	  	
+	  	<div th:insert="~{footer :: footer}"></div>
+	</div>
+</body>
+  
+</html>

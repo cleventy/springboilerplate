@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{header :: head(#{error.title})}"></head>
+<body>
+	<div th:replace="~{header :: menu()}"></div>
+	<div class="container">
+		<div th:replace="~{header :: titlesection(#{error.title})}"></div>
+		
+  		<div class="alert alert-danger" role="alert" th:text="#{error.title}">Error</div>
+  		
+	  	<div th:insert="~{footer :: footer}"></div>
+	</div>
+</body>
+  
+</html>

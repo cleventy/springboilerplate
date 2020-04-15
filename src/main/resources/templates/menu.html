@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+	<div th:fragment="menu()">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-inverse">
+			<a class="navbar-brand" th:href="@{/}" th:text="#{header.menu.brand}">App</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item" th:class="${classActiveHome}"><a class="nav-link" th:href="@{/}" th:text="#{header.menu.home}">Home</a></li>
+					<li class="nav-item" th:class="${classActiveVersion}"><a class="nav-link" th:href="@{/version}" th:text="#{header.menu.version}"></a></li>
+					<li class="nav-item" th:class="${classActiveAdminUsers}" sec:authorize="hasAuthority('ADMIN_A')"><a class="nav-link" th:href="@{/admin/users}" th:text="#{header.menu.users}"></a></li>
+				</ul>
+				<ul class="navbar-nav navbar-right">	
+					<li class="nav-item" th:class="${classActiveLogin}" sec:authorize="!isAuthenticated()"><a class="nav-link" th:href="@{/auth/login}" th:text="#{header.menu.login}"></a></li>
+					<li><span sec:authorize="isAuthenticated()" class="navbar-text" th:text="#{header.hello(${#httpServletRequest.remoteUser})}"></span></li>
+					<li>
+						<form sec:authorize="isAuthenticated()" class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+							<button class="btn btn-outline my-2 my-sm-0" type="submit" th:text="#{header.menu.logout}"></button>
+						</form>
+					</li>					 
+				</ul>
+			</div>
+		</nav>
+	</div>
+</body>
+
+</html>

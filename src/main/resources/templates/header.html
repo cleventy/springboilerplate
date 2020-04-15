@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+  
+ 	<head th:fragment="head(title)">
+		<title th:text="#{header.title(${title})}">Title</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" media="all" href="../../css/styles.css" th:href="@{/css/styles.css}"/>
+		<link rel="icon" type="image/x-icon" th:href="@{/favicon.ico}">
+		<link rel="stylesheet" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+		<script src="../../js/jquery.slim.min.js" th:src="@{/js/jquery.slim.min.js}"></script>
+		<script src="../../js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+		<script src="../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+	</head>
+	
+ 	<div th:fragment="menu()">
+ 		<div th:replace="~{menu :: menu()}"></div>
+	</div>
+	
+ 	<div th:fragment="titlesection(title)">
+		<h1 th:text="${title}">Title</h1>
+	</div>
+	
+  
+</body>
+  
+</html>
